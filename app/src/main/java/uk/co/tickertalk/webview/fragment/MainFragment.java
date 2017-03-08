@@ -363,9 +363,30 @@ public class MainFragment extends TaskFragment {
             public void onPageFinished(final WebView view, final String url) {
                 runTaskCallback(new Runnable() {
                     public void run() {
-                        if (getActivity() != null && mSuccess) {
-                            showContent(100); // Delay in ms
-                        }
+
+                        webView.addJavascriptInterface(new WebViewJavaScriptInterface(null),"Android");
+
+                        webView.evaluateJavascript(" \"use strict\";\n" +
+                                " \n" +
+                                " (function () { \n" +
+                                "\t$(window).on('action:app.load', function() {\n" +
+                                "\t\tif(app.user && app.user.uid != 0){\n" +
+                                "\t\t\tAndroid.ajaxDone(app.user.uid);\n" +
+                                "\t\t}\t\n" +
+                                "\t});\n" +
+                                " }());", new ValueCallback<String>() {
+                            @Override
+                            public void onReceiveValue(String value) {
+                                if(Boolean.parseBoolean(value)){
+                                    String playerId = ((WebAppApplication) getActivity().getApplication()).getOneSignalPlayerId();
+                                    int bp = 1;
+                                }
+                            }
+                        });
+
+                    if (getActivity() != null && mSuccess) {
+                        showContent(100); // Delay in ms
+                    }
                     }
                 });
             }

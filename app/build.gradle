@@ -35,13 +35,13 @@ android
 	defaultConfig
 	{
 		multiDexEnabled true
-		minSdkVersion 14
+		minSdkVersion 19
 		targetSdkVersion 25
 		versionCode VERSION_MAJOR*10000000 + VERSION_MINOR*100000 + VERSION_PATCH*1000 + VERSION_BUILD
 		versionName "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
 
 		manifestPlaceholders = [manifestApplicationId: "${applicationId}",
-								onesignal_app_id: "YOURAPPID",
+								onesignal_app_id: "f4595656-1760-40a8-bbe7-56358ed94915",
 								// Project number pulled from dashboard, local value is ignored.
 								onesignal_google_project_number: "REMOTE"]
 	}
