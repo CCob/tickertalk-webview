@@ -24,8 +24,8 @@ dependencies
 	compile "com.google.android.gms:play-services-gcm:10.2.0"
 	compile "com.google.android.gms:play-services-location:10.2.0"
 	compile 'com.onesignal:OneSignal:3.+@aar'
+	compile 'commons-io:commons-io:2.4'
 }
-
 
 android
 {

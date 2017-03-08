@@ -22,16 +22,20 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+
+import org.apache.commons.io.IOUtils;
+
 import uk.co.tickertalk.webview.R;
 import uk.co.tickertalk.webview.WebAppApplication;
 import uk.co.tickertalk.webview.WebAppConfig;
 import uk.co.tickertalk.webview.utility.DownloadUtility;
 import uk.co.tickertalk.webview.utility.MediaUtility;
 import uk.co.tickertalk.webview.utility.NetworkManager;
-import uk.co.tickertalk.webview.utility.WebViewJavaScriptInterface;
 import uk.co.tickertalk.webview.view.ViewState;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 public class MainFragment extends TaskFragment {
@@ -364,25 +368,16 @@ public class MainFragment extends TaskFragment {
                 runTaskCallback(new Runnable() {
                     public void run() {
 
-                        webView.addJavascriptInterface(new WebViewJavaScriptInterface(null),"Android");
+                        InputStream is = getResources().openRawResource(R.raw.post_player_id);
+                        String js = "";
+                        try {
+                             js = String.format(IOUtils.toString(is),((WebAppApplication)getActivity().getApplication()).getOneSignalPlayerId());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        IOUtils.closeQuietly(is);
 
-                        webView.evaluateJavascript(" \"use strict\";\n" +
-                                " \n" +
-                                " (function () { \n" +
-                                "\t$(window).on('action:app.load', function() {\n" +
-                                "\t\tif(app.user && app.user.uid != 0){\n" +
-                                "\t\t\tAndroid.ajaxDone(app.user.uid);\n" +
-                                "\t\t}\t\n" +
-                                "\t});\n" +
-                                " }());", new ValueCallback<String>() {
-                            @Override
-                            public void onReceiveValue(String value) {
-                                if(Boolean.parseBoolean(value)){
-                                    String playerId = ((WebAppApplication) getActivity().getApplication()).getOneSignalPlayerId();
-                                    int bp = 1;
-                                }
-                            }
-                        });
+                        webView.evaluateJavascript(js, null);
 
                     if (getActivity() != null && mSuccess) {
                         showContent(100); // Delay in ms
