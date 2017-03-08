@@ -1,4 +1,4 @@
-package com.webview.nodebb.utility;
+package uk.co.tickertalk.webview.utility;
 
 import android.content.ContentUris;
 import android.content.Context;

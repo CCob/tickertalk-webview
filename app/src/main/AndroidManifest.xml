@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	package="com.webview.nodebb"
+	package="uk.co.tickertalk.webview"
 	android:installLocation="auto">
 
 	<uses-permission android:name="android.permission.INTERNET" />
@@ -13,12 +13,11 @@
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
 	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-	<!-- Replace com.webview.nodebb with your package name! -->
-	<permission android:protectionLevel="signature" android:name="com.webview.nodebb.permission.C2D_MESSAGE" />
-	<uses-permission android:name="com.webview.nodebb.permission.C2D_MESSAGE" />
+	<permission android:protectionLevel="signature" android:name="uk.co.tickertalk.webview.permission.C2D_MESSAGE" />
+	<uses-permission android:name="uk.co.tickertalk.webview.permission.C2D_MESSAGE" />
 
 	<application
-		android:name="com.webview.nodebb.WebAppApplication"
+		android:name="uk.co.tickertalk.webview.WebAppApplication"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
 		android:theme="@style/Theme.WebApp.Blue"
@@ -30,7 +29,7 @@
 
 
 		<activity
-			android:name="com.webview.nodebb.activity.MainActivity"
+			android:name="uk.co.tickertalk.webview.activity.MainActivity"
 			android:label="@string/app_name"
 			android:launchMode="standard"
 			android:configChanges="keyboard|keyboardHidden|orientation|screenSize">

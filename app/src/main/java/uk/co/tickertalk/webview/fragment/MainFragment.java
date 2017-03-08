@@ -1,4 +1,4 @@
-package com.webview.nodebb.fragment;
+package uk.co.tickertalk.webview.fragment;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -22,12 +22,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.webview.nodebb.R;
-import com.webview.nodebb.WebAppConfig;
-import com.webview.nodebb.utility.DownloadUtility;
-import com.webview.nodebb.utility.MediaUtility;
-import com.webview.nodebb.utility.NetworkManager;
-import com.webview.nodebb.view.ViewState;
+import uk.co.tickertalk.webview.R;
+import uk.co.tickertalk.webview.WebAppApplication;
+import uk.co.tickertalk.webview.WebAppConfig;
+import uk.co.tickertalk.webview.utility.DownloadUtility;
+import uk.co.tickertalk.webview.utility.MediaUtility;
+import uk.co.tickertalk.webview.utility.NetworkManager;
+import uk.co.tickertalk.webview.utility.WebViewJavaScriptInterface;
+import uk.co.tickertalk.webview.view.ViewState;
 
 import java.io.File;
 

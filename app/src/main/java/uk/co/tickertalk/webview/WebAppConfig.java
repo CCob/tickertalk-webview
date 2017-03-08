@@ -1,4 +1,4 @@
-package com.webview.nodebb;
+package uk.co.tickertalk.webview;
 
 
 public class WebAppConfig {

@@ -1,4 +1,4 @@
-package com.webview.nodebb.utility;
+package uk.co.tickertalk.webview.utility;
 
 import android.app.DownloadManager;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 
-import com.webview.nodebb.WebAppConfig;
+import uk.co.tickertalk.webview.WebAppConfig;
 
 
 public class DownloadUtility

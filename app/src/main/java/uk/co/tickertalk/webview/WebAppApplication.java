@@ -1,10 +1,12 @@
-package com.webview.nodebb;
+package uk.co.tickertalk.webview;
 
 import android.app.Application;
 import android.content.Context;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 import com.onesignal.OneSignal;
+
+import uk.co.tickertalk.webview.R;
 
 public class WebAppApplication extends Application {
     private static WebAppApplication mInstance;

@@ -1,4 +1,4 @@
-package com.webview.nodebb.view;
+package uk.co.tickertalk.webview.view;
 
 
 public enum ViewState

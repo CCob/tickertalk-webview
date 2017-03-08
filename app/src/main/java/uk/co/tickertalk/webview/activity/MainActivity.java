@@ -1,4 +1,4 @@
-package com.webview.nodebb.activity;
+package uk.co.tickertalk.webview.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,10 +21,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
-import com.webview.nodebb.R;
-import com.webview.nodebb.WebAppApplication;
-import com.webview.nodebb.adapter.DrawerAdapter;
-import com.webview.nodebb.fragment.MainFragment;
+
+import uk.co.tickertalk.webview.R;
+import uk.co.tickertalk.webview.WebAppApplication;
+import uk.co.tickertalk.webview.adapter.DrawerAdapter;
+import uk.co.tickertalk.webview.fragment.MainFragment;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -35,7 +36,6 @@ public class MainActivity extends ActionBarActivity {
     private CharSequence mTitle;
     private CharSequence mDrawerTitle;
     private String[] mTitles;
-
 
     public static Intent newIntent(Context context) {
         Intent intent = new Intent(context, MainActivity.class);

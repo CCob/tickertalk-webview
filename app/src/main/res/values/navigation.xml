@@ -8,8 +8,8 @@
 
     <!-- URLs -->
     <string-array name="navigation_url_list">
-        <item>https://community.nodebb.org/</item>
 
+        <item>http://www.tickertalk.co.uk/</item>
     </string-array>
 
     <!-- Navigation Icons -->

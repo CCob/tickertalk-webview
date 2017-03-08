@@ -1,4 +1,4 @@
-package com.webview.nodebb.fragment;
+package uk.co.tickertalk.webview.fragment;
 
 import java.util.LinkedList;
 import java.util.List;

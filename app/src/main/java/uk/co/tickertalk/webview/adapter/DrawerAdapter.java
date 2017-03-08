@@ -1,4 +1,4 @@
-package com.webview.nodebb.adapter;
+package uk.co.tickertalk.webview.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.webview.nodebb.R;
+import uk.co.tickertalk.webview.R;
 
 
 public class DrawerAdapter extends BaseAdapter {

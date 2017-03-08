@@ -1,4 +1,4 @@
-package com.webview.nodebb.utility;
+package uk.co.tickertalk.webview.utility;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
