@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -198,7 +199,15 @@ public class MainActivity extends ActionBarActivity {
 
         // Show Fragment
         if (savedInstanceState == null) {
-            selectDrawerItem(0, true);
+
+            Intent intent = getIntent();
+
+            if(intent.getAction() == Intent.ACTION_VIEW){
+                Uri data = intent.getData();
+                createFragmentWithUrl(data.toString());
+            }else {
+                selectDrawerItem(0, true);
+            }
         }
     }
 
@@ -206,12 +215,17 @@ public class MainActivity extends ActionBarActivity {
     private void selectDrawerItem(int position, boolean init) {
         String[] urlList = getResources().getStringArray(R.array.navigation_url_list);
 
-        Fragment fragment = MainFragment.newInstance(urlList[position]);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.activity_main_container, fragment).commitAllowingStateLoss();
+        createFragmentWithUrl(urlList[0]);
 
         mDrawerListView.setItemChecked(position, true);
         if (!init) setTitle(mTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerListView);
+    }
+
+    private Fragment createFragmentWithUrl(String url){
+        Fragment fragment = MainFragment.newInstance(url);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.activity_main_container, fragment).commitAllowingStateLoss();
+        return fragment;
     }
 }
